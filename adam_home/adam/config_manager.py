@@ -35,6 +35,14 @@ class ConfigManager(object):
                 self.raw_config = json.load(f)
         elif raw_config is not None:
             self.raw_config = raw_config
+            
+    def read_config(self,file_name,raw_config=None):
+        if file_name is not None:
+            print("filename = ", file_name)
+            with open(file_name, 'r') as f:
+                raw_config = json.load(f)
+                raise ValueError('print raw_config', raw_config)
+        return raw_config
 
     def get_config(self, environment=None):
         if environment is None:
