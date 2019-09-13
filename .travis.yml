@@ -22,8 +22,8 @@ install:
 - conda info -a
 - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f requirements.txt
 - source activate test-environment
-before_script:
-  flake8 .
+#before_script:
+#  flake8 .
 script:
 - py.test adam --cov=adam --ignore=adam/tests/integration_tests/hypercube_test.py
 after_success:
