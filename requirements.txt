@@ -1,0 +1,11 @@
+numpy
+requests
+tabulate
+pandas
+pytest
+pytest-cov
+coveralls
+flake8
+jupyter
+psutil
+matplotlib
