@@ -1,3 +1,4 @@
+import os
 cwd = os.getcwd()
 print("Current working dir: ", cwd) 
 os.chdir("..")
