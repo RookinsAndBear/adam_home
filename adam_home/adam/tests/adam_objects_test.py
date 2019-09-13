@@ -12,7 +12,7 @@ print("list dir: ")
 arr = os.listdir(os.getcwd())
 print(arr)
 import sys
-sys.path.append(os.path.join(os.getcwd()+"/adam")
+sys.path.append(os.path.join(os.getcwd()+"/adam"))
 #sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from adam.adam_objects import AdamObject
 from adam.adam_objects import AdamObjects
