@@ -1,8 +1,14 @@
 import os
 cwd = os.getcwd()
 print("Current working dir: ", cwd) 
-os.chdir("../..")
-print("Go up 2 dir: ", os.getcwd()) 
+print("list dir: ")
+os.listdir()
+print("*****************************")
+print("*****************************")
+os.chdir("..")
+print("Go up  dir: ", os.getcwd())
+print("list dir: ")
+os.listdir()
 from adam.adam_objects import AdamObject
 from adam.adam_objects import AdamObjects
 from adam.adam_objects import AdamObjectRunnableState
