@@ -28,7 +28,7 @@ before_script:
 - cd adam_home/demos
 script:
 #- py.test ../adam/tests --cov=adam --ignore=adam/tests/integration_tests/hypercube_test.py
-- py.test ../adam/tests --ignore=integration_tests
+- py.test ../adam/tests
 #- flake8 --max-line-length=125 --ignore=F401,F403 .
 before_install:
 - "export PYTHONPATH=$PYTHONPATH:$(pwd)"
