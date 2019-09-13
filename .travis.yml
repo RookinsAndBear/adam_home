@@ -25,7 +25,7 @@ install:
 #before_script:
 #  flake8 .
 script:
-- py.test adam --cov=adam --ignore=adam_home/adam_home/adam/tests/integration_tests/hypercube_test.py
+- py.test adam --cov=adam --ignore=adam/tests/integration_tests/hypercube_test.py
 after_success:
 - coveralls
 #before_install:
