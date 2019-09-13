@@ -1,8 +1,50 @@
+#language: python
+#sudo: false
+#branches:
+#  only:
+#  - master
+#python:
+#- '3.6'
+#install:
+#- pip install --upgrade setuptools
+#- sudo apt-get update
+#- if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+#      wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
+#    else
+#      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+#    fi
+#- bash miniconda.sh -b -p $HOME/miniconda
+#- export PATH="$HOME/miniconda/bin:$PATH"
+#- hash -r
+#- conda config --set always_yes yes --set changeps1 no
+#- conda update conda
+#- conda install tornado=5.1.1
+#- conda info -a
+#- conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f requirements.txt
+#- source activate test-environment
+#before_script:
+#  flake8 .
+#script:
+#- py.test adam --cov=adam --ignore=adam/tests/integration_tests/hypercube_test.py
+#after_success:
+#- coveralls
+#before_install:
+#- export PYTHONPATH=$PYTHONPATH:$(pwd)
+#- openssl aes-256-cbc -K $encrypted_3633a9d4c228_key -iv $encrypted_3633a9d4c228_iv
+#  -in test_config.json.enc -out test_config.json -d
+#before_install:
+#- openssl aes-256-cbc -k "RooBearHersh5464" -in test_config.json.enc -out test_config.json -d
+#- openssl aes-256-cbc -k $encrypted_3633a9d4c228_key -iv $encrypted_3633a9d4c228_iv
+#  -in test_adam_config.json.enc -out test_adam_config.json -d
+#env:
+#  global:
+#    secure: ZUHAkevDNXbAY3EeQXEUzgTzT2PRpvsvlXpJqemXevdiE6hefl7BLlhcAk+rAb98MM52pEOhoS9HyUl10IV0x48RsuGc1A6D0ht6BG1M+ysQlLvjSmBwufXMP7XUulwpBeHyREF2uHKXzF36us26cdErbDJuSve/ONHVeEwNbRRSZUpUbz1vK85rflLgVlP8cg7o4ISz7+b+KIkRsPtFIzVTCcWwMVZBelQeuNomGWyh0PD7N0ESTV6UL9GQcVdmGb21auQVq2SDbNP/VfIsjrHS1TZXM0m7I/hdTRVgEzlnEF0Tfo7ionlcFa/QwSQpwq9932v8HOUDDUovFNeEipdUwn+Bgfa0e6d3g1XzKtuxy5tu8qRgO1CrvNPhjglV396U9FaPL2LyZ0lhamxSQxaGSEHOB0DvL3MuAYK/JrL+uv3qC14Myra3m5rUWdpBIFt62WhKJx8afHbvqWZKD1zcaGVDPzZlMeXwRTma4dWdWzDwaI6NpM6wLJU42NPYmuaBWZ2B6oCino1XtE8/EDfBpNP6kEN7jFk4IA/1Ky6v3R1+YmJdgdLydo91VXn7kDOOxl5KPJUDR13qQ5JeAS5rKRPB3nc0w/7qQbMVtzaWrs25adPbU4xLqBSH+XjTVNRRACs3HjY4d7ZfFetcoW/pD3Unv7MPQIYp2tV76pY=
 language: python
 sudo: false
 branches:
   only:
   - master
+  - /^development.*$/
 python:
 - '3.6'
 install:
@@ -20,18 +62,14 @@ install:
 - conda update conda
 - conda install tornado=5.1.1
 - conda info -a
+# - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f environment.yml
 - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f requirements.txt
 - source activate test-environment
-#before_script:
-#  flake8 .
+before_script:
+- cd adam_home/demos
 script:
-- py.test adam --cov=adam --ignore=adam/tests/integration_tests/hypercube_test.py
-after_success:
-- coveralls
-#before_install:
-#- export PYTHONPATH=$PYTHONPATH:$(pwd)
-#- openssl aes-256-cbc -K $encrypted_3633a9d4c228_key -iv $encrypted_3633a9d4c228_iv
-#  -in test_config.json.enc -out test_config.json -d
+- py.test ../tests
+#- flake8 --max-line-length=125 --ignore=F401,F403 .
 before_install:
 #- openssl aes-256-cbc -k "RooBearHersh5464" -in test_config.json.enc -out test_config.json -d
 - openssl aes-256-cbc -k $encrypted_3633a9d4c228_key -iv $encrypted_3633a9d4c228_iv
