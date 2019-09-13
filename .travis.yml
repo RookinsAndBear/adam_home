@@ -28,7 +28,7 @@ install:
 #- cd adam_home/demos
 script:
 #- py.test ../adam/tests
-- py.test /adam/tests
+- py.test /adam_home/adam/tests
 #- flake8 --max-line-length=125 --ignore=F401,F403 .
 before_install:
 #- openssl aes-256-cbc -k "RooBearHersh5464" -in test_config.json.enc -out test_config.json -d
